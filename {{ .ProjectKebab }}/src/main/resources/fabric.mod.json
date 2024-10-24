@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "{{ .ProjectKebab }}",
+  "version": "${version}",
+  "name": "{{ .Project }}",
+  "description": "{{ .Scaffold.description }}",
+  "authors": ["{{ .Scaffold.author }}"],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/{{ .ProjectKebab }}",
+    "sources": "https://github.com/{{ .Scaffold.author }}/{{ .ProjectKebab }}"
+  },
+  "license": "MIT",
+  "icon": "assets/{{ .ProjectKebab }}/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["{{ .Scaffold.package1 }}.{{ .Scaffold.package2 }}.{{ .ProjectPascal }}"],
+    "client": ["{{ .Scaffold.package1 }}.{{ .Scaffold.package2 }}.{{ .ProjectPascal }}Client"]
+  },
+  "mixins": [
+    "{{ .ProjectKebab }}.mixins.json",
+    {
+      "config": "{{ .ProjectKebab }}.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">={{ .Computed.loader }}",
+    "minecraft": "~{{ .Scaffold.version }}",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "suggests": {}
+}

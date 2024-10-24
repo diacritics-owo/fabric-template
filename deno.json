@@ -1,0 +1,5 @@
+{
+  "tasks": {
+    "versions": "deno run --allow-net versions.ts"
+  }
+}
